@@ -57,7 +57,7 @@ def changePattern(bool):
 	return 2 if bool else 0
 
 def playPattern(pattern):
-	patternArr = ['patternA', 'patternB', 'patternC']
+	patternArr = {0:patternA(), 1:patternB(), 2:patternC()}
 	patternArr[pattern]()
 
 Exit = False
