@@ -25,68 +25,37 @@ GPIO.setup(left_button, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(right_button, GPIO.IN, GPIO.PUD_UP)
 
 
+def setVector(l1,l2,l3):
+        GPIO.output(led1, l1)
+        GPIO.output(led2, l2)
+        GPIO.output(led3, l3)
+
 
 def patternA():
-	GPIO.output(led1, 1)
-	GPIO.output(led2, 0)
-	GPIO.output(led3, 0)
-
+	setVector(1,0,0)
 	time.sleep(1)
-
-	GPIO.output(led1, 0)
-	GPIO.output(led2, 1)
-	GPIO.output(led3, 0)
-
+	setVector(0,1,0)
 	time.sleep(1)
-
-	GPIO.output(led1, 0)
-	GPIO.output(led2, 0)
-	GPIO.output(led3, 1)
-
+	setVector(0,0,1)
 	time.sleep(1)
-
-	GPIO.output(led1, 0)
-	GPIO.output(led2, 0)
-	GPIO.output(led3, 0)
+	setVector(0,0,0)
 
 
 def patternB():
-	GPIO.output(led1, 1)
-	GPIO.output(led2, 1)
-	GPIO.output(led3, 0)
-
+	setVector(1,1,0)
 	time.sleep(1)
-
-	GPIO.output(led1, 0)
-	GPIO.output(led2, 1)
-	GPIO.output(led3, 1)
-
+	setVector(0,1,1)
 	time.sleep(1)
-
-	GPIO.output(led1, 1)
-	GPIO.output(led2, 0)
-	GPIO.output(led3, 1)
-
+	setVector(1,0,1)
 	time.sleep(1)
-
-	GPIO.output(led1, 0)
-	GPIO.output(led2, 0)
-	GPIO.output(led3, 0)
+	setVector(0,0,0)
 
 
 def patternC():
-	GPIO.output(led1, 1)
-	GPIO.output(led2, 1)
-	GPIO.output(led3, 1)
-
+	setVector(1,1,1)
 	time.sleep(1)
-
-	GPIO.output(led1, 0)
-	GPIO.output(led2, 0)
-	GPIO.output(led3, 0)
-
+	setVector(0,0,0)
 	time.sleep(1)
-
 
 
 patternA()
