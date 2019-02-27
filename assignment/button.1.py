@@ -62,10 +62,9 @@ def playPattern(pattern):
 	patternArr[pattern]()
 
 Exit = False
+pattern = 1
 
 while not Exit:
-
-	pattern = 1
 
 	if GPIO.input(left_button) == False and GPIO.input(right_button) == False:
 		print("Both Button Pressed")
