@@ -74,11 +74,11 @@ while not Exit:
 	
 	elif GPIO.input(left_button) == False:
 		pattern = changePattern(pattern, False)
-		# playPattern(pattern)
+		playPattern(pattern)
 
 	elif GPIO.input(right_button) == False:
 		pattern = changePattern(pattern, True)
-		# playPattern(pattern)
+		playPattern(pattern)
 
 	else:
 		playPattern(pattern)
