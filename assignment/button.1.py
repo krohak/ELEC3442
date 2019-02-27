@@ -53,12 +53,14 @@ def patternC():
 	setVector(0,0,0)
 	time.sleep(1)
 
+patternArr = {0:patternA, 1:patternB, 2:patternC}
+
 def changePattern(bool):
 	return 2 if bool else 0
 
 def playPattern(pattern):
 	print(pattern)
-	patternArr = {0:patternA(), 1:patternB(), 2:patternC()}
+	print(patternArr[pattern])
 	patternArr[pattern]()
 
 Exit = False
@@ -73,16 +75,16 @@ while not Exit:
 	
 	elif GPIO.input(left_button) == False:
 		pattern = changePattern(False)
-		print(pattern)
+		print("here1",pattern)
 		playPattern(pattern)
 
 	elif GPIO.input(right_button) == False:
 		pattern = changePattern(True)
-		print(pattern)
+		print("here2",pattern)
 		playPattern(pattern)
 
 	else:
-		print(pattern)
+		print("here3",pattern)
 		playPattern(pattern)
 
 GPIO.cleanup()
