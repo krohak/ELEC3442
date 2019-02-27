@@ -55,8 +55,8 @@ def patternC():
 
 patternArr = {0:patternA, 1:patternB, 2:patternC}
 
-def changePattern(bool):
-	return 2 if bool else 0
+def changePattern(pattern, bool):
+	return (pattern+1)%3 if bool else (pattern-1)%3
 
 def playPattern(pattern):
 	patternArr[pattern]()
@@ -71,11 +71,11 @@ while not Exit:
 		Exit = True
 	
 	elif GPIO.input(left_button) == False:
-		pattern = changePattern(False)
+		pattern = changePattern(pattern, False)
 		playPattern(pattern)
 
 	elif GPIO.input(right_button) == False:
-		pattern = changePattern(True)
+		pattern = changePattern(pattern, True)
 		playPattern(pattern)
 
 	else:
