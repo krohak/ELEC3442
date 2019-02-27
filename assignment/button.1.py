@@ -59,6 +59,7 @@ def changePattern(pattern, bool):
 	return (pattern+1)%3 if bool else (pattern-1)%3
 
 def playPattern(pattern):
+	print(pattern)
 	patternArr[pattern]()
 
 Exit = False
