@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import random
 
 led1 = 2
 led2 = 3
@@ -7,8 +8,10 @@ led3 = 4
 left_button = 14
 right_button = 15
 
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+
 
 GPIO.setup(led1, GPIO.OUT)
 GPIO.setup(led2, GPIO.OUT)
@@ -20,6 +23,7 @@ GPIO.output(led3, 0)
 
 GPIO.setup(left_button, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(right_button, GPIO.IN, GPIO.PUD_UP)
+
 
 def setVector(l1,l2,l3):
 	GPIO.output(led1, l1)
@@ -53,35 +57,16 @@ def patternC():
 	setVector(0,0,0)
 	time.sleep(1)
 
-patternArr = {0:patternA, 1:patternB, 2:patternC}
 
-def changePattern(pattern, bool):
-	return (pattern+1)%3 if bool else (pattern-1)%3
+patternA()
+patternB()
+patternC()
 
-def playPattern(pattern):
-	print("Pattern", pattern)
-	patternArr[pattern]()
+if GPIO.input(left_button) == False:
+	print("Left Button Pressed")
 
-Exit = False
-pattern = 0
+if GPIO.input(right_button) == False:
+	print("Right Button Pressed")
 
-while not Exit:
-
-	if GPIO.input(left_button) == False and GPIO.input(right_button) == False:
-		print("Both Button Pressed")
-		playPattern(2)
-		Exit = True
-	
-	elif GPIO.input(left_button) == False:
-		pattern = changePattern(pattern, False)
-		playPattern(pattern)
-
-	elif GPIO.input(right_button) == False:
-		pattern = changePattern(pattern, True)
-		playPattern(pattern)
-
-	else:
-		playPattern(pattern)
 
 GPIO.cleanup()
-
