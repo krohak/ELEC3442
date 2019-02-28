@@ -84,9 +84,11 @@ def incrementPattern(channel):
 	global pattern
 	pattern = (pattern+1)%3
 
-
-GPIO.add_event_detect(left_button, GPIO.RISING, callback = decrementPattern, bouncetime=700)
-GPIO.add_event_detect(right_button, GPIO.RISING, callback = incrementPattern, bouncetime=700)
+#bouncetime for detecting button press only after 0.7 seconds
+GPIO.add_event_detect(left_button, GPIO.RISING, callback = decrementPattern, 
+			bouncetime=700) 
+GPIO.add_event_detect(right_button, GPIO.RISING, callback = incrementPattern, 
+			bouncetime=700)
 
 while not Exit:
 	playPattern()
