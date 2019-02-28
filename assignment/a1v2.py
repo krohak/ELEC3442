@@ -69,8 +69,8 @@ def playPattern(pattern):
 #     print('This is run in a different thread to your main program')
 
 
-GPIO.add_event_detect(left_button, GPIO.RISING, bouncetime=700)
 GPIO.add_event_detect(right_button, GPIO.RISING, bouncetime=700)
+GPIO.add_event_detect(left_button, GPIO.RISING, bouncetime=700)
 
 Exit = False
 pattern = 0
@@ -81,7 +81,7 @@ while not Exit:
 		print("Both Button Pressed")
 		playPattern(2)
 		Exit = True
-	
+
 	elif GPIO.event_detected(left_button):
 		pattern = changePattern(pattern, False)
 		playPattern(pattern)
