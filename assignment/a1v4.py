@@ -60,12 +60,11 @@ Exit = False
 
 def playPattern():
 	global pattern
-	print("Pattern", pattern)
+	print("Pattern " + str(pattern))
 	patternArr[pattern]()
 
 
 def decrementPattern(channel):
-
 	if GPIO.input(right_button) == False:
 		global Exit
 		print("Both Button Pressed")
@@ -76,7 +75,6 @@ def decrementPattern(channel):
 	pattern = (pattern-1)%3
 
 def incrementPattern(channel):
-
 	if GPIO.input(left_button) == False:
 		global Exit
 		print("Both Button Pressed")
@@ -90,10 +88,8 @@ def incrementPattern(channel):
 GPIO.add_event_detect(left_button, GPIO.RISING, callback = decrementPattern, bouncetime=700)
 GPIO.add_event_detect(right_button, GPIO.RISING, callback = incrementPattern, bouncetime=700)
 
-
 while not Exit:
 	playPattern()
-
 
 pattern = 2
 playPattern()
