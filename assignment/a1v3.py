@@ -65,12 +65,10 @@ def playPattern():
 
 def decrementPattern(channel):
 	global pattern
-	print('This is a edge event callback function!')
 	pattern = (pattern-1)%3
 
 def incrementPattern(channel):
 	global pattern
-	print('This is a edge event callback function!')
 	pattern = (pattern+1)%3
 
 
