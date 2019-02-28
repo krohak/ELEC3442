@@ -60,7 +60,7 @@ Exit = False
 
 def playPattern():
 	global pattern
-	print("Pattern " + str(patternArr[pattern]))
+	print("Pattern " + str(patternArr[pattern].__name__[7:]))
 	patternArr[pattern]()
 
 
