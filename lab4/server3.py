@@ -4,7 +4,7 @@ from sense_hat import SenseHat
 sense = SenseHat()
 sense.clear()
 
-PORT = 12345
+PORT = 12346
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(('', PORT))
 print('Server created.')
