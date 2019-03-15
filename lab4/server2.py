@@ -19,7 +19,25 @@ while True:
 		con.close()
 		server.close()
 		break
+
+	elif msg[0] == 'EXIT':
+		print('Close connection.')
+		con.close()
+
+		server.listen(1)
+		con, addr = server.accept()
+		print('Connected to %s:%s.' % (addr[0], addr[1]))
+
+		data = con.recv(1024)
+		print(data.decode())
+		con.send('Greetings from the server.'.encode())
+
 	elif msg[0] == 'SHOW':
 		print(' '.join(msg[1:]))
+
+	elif msg[0] == 'ECHO':
+		print(' '.join(msg[1:]))
+		con.send(' '.join(msg[1:]).encode())
+
 	else:
 		print('Message: %s' % msg)
